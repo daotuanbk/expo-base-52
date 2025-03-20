@@ -3,19 +3,23 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start",
+    "dev": "APP_VARIANT=development npx expo start",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "npx expo run:android",
-    "ios": "npx expo run:ios",
+    "android": "APP_VARIANT=development npx expo run:android",
+    "ios": "APP_VARIANT=development npx expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint",
     "build:ios:sim": "eas build --profile development --platform ios --local",
     "build:ios:dev": "eas build --profile development:device --platform ios --local",
+    "build:ios:staging": "eas build --profile staging --platform ios --local",
     "build:ios:prod": "eas build --profile production --platform ios --local",
     "build:android:sim": "eas build --profile development --platform android --local",
     "build:android:dev": "eas build --profile development:device --platform android --local",
-    "build:android:prod": "eas build --profile production --platform android --local"
+    "build:android:staging": "eas build --profile staging --platform android --local",
+    "build:android:prod": "eas build --profile production --platform android --local",
+    "typecheck": "tsc --project tsconfig.json --noEmit --skipLibCheck",
+    "prepare": "husky install"
   },
   "jest": {
     "preset": "jest-expo"
@@ -40,6 +44,7 @@
     "expo-symbols": "~0.2.2",
     "expo-system-ui": "~4.0.8",
     "expo-web-browser": "~14.0.2",
+    "husky": "^9.1.7",
     "ky": "^1.7.5",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -53,7 +58,8 @@
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
