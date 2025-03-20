@@ -12,7 +12,6 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 
-// Thêm đoạn này vào đầu file, trước các import khác
 if (__DEV__) {
   require("../ReactotronConfig");
 }
